@@ -6,6 +6,10 @@ body{
 h1{
   margin:0;
 }
+button:hover{
+  cursor: pointer;
+}
+
 /*/////////////////////////////////////////////////////////*/
 #container{
   max-width: 1000px;
@@ -37,4 +41,39 @@ h1{
 #topbar{
   display: flex;
   justify-content: space-around;
+}
+/*/////////////////////////////////////////////////////////*/
+#flexcontainer{
+  margin-top: 10px;
+  display: flex;
+  justify-content:space-between;
+}
+/*/////////////////////////////////////////////////////////*/
+#navsection{
+  width:20%;
+  height: 800px;
+  background-color: rgba(99, 99, 99, 0.5);
+}
+#navsection ul li {
+  display: block;
+  background-color: rgba(8, 37, 140, 0.8);
+  border: 1px solid;
+  margin-bottom: 0.5em;
+}
+#navsection ul li:hover {
+  background-color: rgba(8, 37, 140, 0.9);
+}
+
+#category{
+  width: 6em;
+  background-color: blue;
+  font-size: 26px;
+  border: 2px solid black;
+  border-radius: 15px;
+  margin: 0 0 5px;
+  text-align: center;
+}
+#category:hover{
+  background-color: darkblue;
+  cursor: pointer;
 }

@@ -6,6 +6,7 @@ import Clock from './components/Clock'
 import UserBox from './components/UserBox'
 import Logo from './components/Logo'
 import TopBar from './sections/Topbar'
+import NavSection from './sections/NavSection'
 
 
 ReactDOM.render(
@@ -14,5 +15,8 @@ ReactDOM.render(
     <UserBox/>
     <Logo/>
     <TopBar/>
+    <div id="flexContainer">
+      <NavSection/>
+    </div>
   </div>,
    document.getElementById('root'));
