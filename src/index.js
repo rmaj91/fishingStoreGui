@@ -7,6 +7,7 @@ import UserBox from './components/UserBox'
 import Logo from './components/Logo'
 import TopBar from './sections/Topbar'
 import NavSection from './sections/NavSection'
+import MainSection from './sections/MainSection'
 
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
     <TopBar/>
     <div id="flexContainer">
       <NavSection/>
+      <MainSection/>
     </div>
   </div>,
    document.getElementById('root'));
