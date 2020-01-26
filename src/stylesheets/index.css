@@ -16,3 +16,17 @@ h1{
   top: 0px;
   right: 0px;
 }
+#logo{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+#logo h1{
+  font-size: 64px;
+  font-family: cursive;
+  color: rgba(25, 25, 25, 0.75);
+}
+#logo img{
+  max-height: 250px;
+}
