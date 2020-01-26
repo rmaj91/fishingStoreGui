@@ -8,15 +8,15 @@ class Clock extends Component{
   constructor(props){
     super(props)
     this.state = {
-      time: new Date().toLocaleString()
+      currentTime: new Date().toLocaleString()
     }
     this.LaunchClock();
   }
   LaunchClock(){
     setInterval(()=>{
-      this.setState = {
-        time: new Date().toLocaleString()
-      }
+      this.setState({
+        currentTime: new Date().toLocaleString()
+      })
     },1000)
   }
   // state ={
@@ -25,7 +25,7 @@ class Clock extends Component{
   render(){
     return(
       <div id="clock">
-        <DigitalDisplay time={this.state.time}/>
+        <DigitalDisplay time={this.state.currentTime}/>
         <p style={{position:'fixed',left:0,top:15}}>Brania dobre!</p>
       </div>
     )

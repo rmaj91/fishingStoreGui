@@ -5,6 +5,7 @@ import './stylesheets/index.css';
 import Clock from './components/Clock'
 import UserBox from './components/UserBox'
 import Logo from './components/Logo'
+import TopBar from './sections/Topbar'
 
 
 ReactDOM.render(
@@ -12,5 +13,6 @@ ReactDOM.render(
     <Clock/>
     <UserBox/>
     <Logo/>
+    <TopBar/>
   </div>,
    document.getElementById('root'));
