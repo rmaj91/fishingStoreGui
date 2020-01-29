@@ -89,3 +89,8 @@ button:hover{
   display: flex;
   justify-content:space-between;
 }
+
+#horizontalMenu{
+  display: flex;
+  justify-content: space-around;
+}
