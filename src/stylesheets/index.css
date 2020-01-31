@@ -43,7 +43,7 @@ button:hover{
   justify-content: space-around;
 }
 /*/////////////////////////////////////////////////////////*/
-#flexcontainer{
+#flexContainer{
   margin-top: 10px;
   display: flex;
   justify-content:space-between;
@@ -90,7 +90,19 @@ button:hover{
   justify-content:space-between;
 }
 
-#horizontalMenu{
+.horizontalMenu{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+.horizontalMenu li{
+  width:100%;
+  margin:0 5% 0;
+  text-align: center;
+  background-color: gray;
+  border: 1px solid black;
+}
+.shopItem{
+  width:10%;
+  background-color: blue;
+  margin:20px;
 }

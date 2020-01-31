@@ -1,14 +1,11 @@
 import React,{Component} from 'react'
-import Link from './Link.js'
 
 class Menu extends Component{
   render(){
     return(
-      <div id={this.props.id} className={this.props.className} >
-        {this.props.menus.map((v,i)=>{
-          return <div key={i}><Link label={v}/></div>
-        })}
-      </div>
+      <ul className={this.props.menuType}>
+        {this.props.items.map((v,i)=><li onClick={()=>this.props.changeCategory(v)}id="horizontalMenuItems" key={i}>{v}</li>)}
+      </ul>
     )
   }
 }

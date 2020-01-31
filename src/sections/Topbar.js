@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import SearchBox from './../components/SearchBox';
 
-class Topbar extends Component{
+class TopBar extends Component{
   render(){
     return(
       <div id="topbar">
@@ -11,4 +11,4 @@ class Topbar extends Component{
   }
 }
 
-export default Topbar;
+export default TopBar;

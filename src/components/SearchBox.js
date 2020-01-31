@@ -9,7 +9,7 @@ class SearchBox extends Component{
           <option>All Categories</option>
           <option>Rods</option>
           <option>Reels</option>
-          <option>Baits</option>
+          <option>Lures</option>
         </select>
         <button>Search</button>
       </div>
