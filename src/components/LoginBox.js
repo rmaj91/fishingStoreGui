@@ -4,9 +4,11 @@ class Loginbox extends Component{
   render(){
     return(
       <div id="loginBox">
-        <input placeholder="Login..."/><br/>
-        <input type="password" placeholder="Password..."/><br/>
-        <button>Login</button>
+      <form>
+        <input type="text" placeholder="Login..." className="form-control"/><br/>
+        <input type="password" placeholder="Password..." className="form-control"/><br/>
+        <input type="submit" value="Login"></input>
+      </form>
       </div>
     )
   }

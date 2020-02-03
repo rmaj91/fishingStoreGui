@@ -1,7 +1,7 @@
 body{
   margin:0;
   padding: 0;
-  background-image: url("../images/background.jpg");
+  background-color: #b3c4b7;
 }
 h1{
   margin:0;
@@ -9,7 +9,31 @@ h1{
 button:hover{
   cursor: pointer;
 }
+input[type=text],input[type=password]{
+  height:2em;
+  border-radius: 6px;
+  width: 150px;
+}
+input[type=submit] {
+  background-color: #666666;
+  height:2.5em;
+  border-radius: 6px;
+  width:100%;
+  color:white;
+  border:none;
+  width: 150px;
+}
+input[type=submit]:hover {
+  background-color: #333333;
+  cursor: pointer;
 
+}
+select{
+  height:2.5em;
+  border-radius: 6px;
+  width:150px;
+  margin:0;
+}
 /*/////////////////////////////////////////////////////////*/
 #container{
   max-width: 1000px;
@@ -32,77 +56,73 @@ button:hover{
 #logo h1{
   font-size: 64px;
   font-family: cursive;
-  color: rgba(25, 25, 25, 0.75);
+  color: black;
 }
 #logo img{
-  max-height: 250px;
+  max-height: 150px;
 }
-/*/////////////////////////////////////////////////////////*/
-#topbar{
-  display: flex;
-  justify-content: space-around;
-}
-/*/////////////////////////////////////////////////////////*/
+
 #flexContainer{
   margin-top: 10px;
   display: flex;
   justify-content:space-between;
-}
-/*/////////////////////////////////////////////////////////*/
-#navsection{
-  width:20%;
-  height: 800px;
-  background-color: rgba(99, 99, 99, 0.5);
-}
-#navsection ul li {
-  display: block;
-  background-color: rgba(8, 37, 140, 0.6);
-  border: 1px solid;
-  margin-bottom: 0.5em;
-}
-#navsection ul li:hover {
-  background-color: rgba(8, 37, 140, 0.8);
+  align-items: flex-start;
 }
 
-#category{
-  width: 6em;
-  background-color: rgba(8, 37, 140, 0.8);
-  font-size: 26px;
-  border: 2px solid black;
-  border-radius: 15px;
-  margin: 0 0 5px;
-  text-align: center;
+.menu{
+  list-style-type: none;
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
 }
-#category:hover{
-  background-color: darkblue;
+.menu li a{
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
   cursor: pointer;
 }
-
-#mainSection{
-  margin-left: 10px;
-  width: 80%;
-  height: 800px;
-  background-color: rgba(99, 99, 99, 0.5);
+.menu li a.active{
+  background-color: #4CAF50;
+  color: white;
 }
-#flexContainer{
-  margin-top: 10px;
-  display: flex;
-  justify-content:space-between;
+.menu li a:hover:not(.active) {
+  background-color: #555;
+  color: white;
 }
 
-.horizontalMenu{
-  display: flex;
-  justify-content: space-between;
+.shopItem{
+  width:30%;
+  min-width: 150px;
+  background-color: blue;
+  margin:5px;
 }
-.horizontalMenu li{
-  width:100%;
-  margin:0 5% 0;
+.pagination{
+  margin-bottom: 50px;
+}
+.pagination ul{
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 24px;
+
+}
+.pagination ul li{
+  list-style-type: none;
+  border-left: 1px solid black;
+  width: 30px;
+  height: 30px;
   text-align: center;
   background-color: gray;
-  border: 1px solid black;
+  cursor: pointer;
 }
-.shopItem{
-  width:10%;
-  background-color: blue;
-  margin:20px;
+.pagination ul li:hover{
+  background-color: #333333;
+}
+.pagination a{
+  text-decoration: none;
+  color: black;
 }

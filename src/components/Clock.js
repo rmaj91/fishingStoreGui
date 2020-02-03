@@ -26,7 +26,6 @@ class Clock extends Component{
     return(
       <div id="clock">
         <DigitalDisplay time={this.state.currentTime}/>
-        <p style={{position:'fixed',left:0,top:15}}>Brania dobre!</p>
       </div>
     )
   }
