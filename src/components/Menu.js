@@ -5,7 +5,7 @@ class Menu extends Component{
   constructor(props){
     super(props);
     this.state = {
-      linksState:[]
+      linksState: this.props.default
     }
   }
   setActive = (i)=>{
@@ -18,11 +18,12 @@ class Menu extends Component{
   render(){
     return(
       <ul className="menu">
-        {this.props.items.map((v,i)=>
+        {this.props.items.map((category,i)=>
           <li>
-            <LinkMenu key={i} linkNumber={i} status={this.state.linksState}
-            setActive={this.setActive}
-            href={`/${v.toLowerCase().replace(' ','-')}`} >{v}</LinkMenu>
+            <LinkMenu key={i} href={`/${category.toLowerCase().replace(' ','-')}`}
+              linkNumber={i} status={this.state.linksState} setActive={this.setActive}>
+                {category}
+            </LinkMenu>
           </li>)}
       </ul>
     )

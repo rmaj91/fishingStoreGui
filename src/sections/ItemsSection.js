@@ -4,7 +4,7 @@ import ShopItem from './../components/ShopItem'
 class ItemsSection extends Component {
 render(){
     return(
-      <div style={{width:"100%",display:'flex',flexWrap:'wrap'}}>
+      <div style={{width:"100%",display:'flex',flexWrap:'wrap', marginLeft:'10px'}}>
         {this.props.items.map((v,i)=><ShopItem key={i} item={v}/>)}
       </div>
     )

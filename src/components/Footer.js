@@ -6,7 +6,7 @@ class Footer extends Component{
       <div style={{backgroundColor: 'gray',textAlign:'center',height:'25px',
       position:'fixed', bottom:'0',left:'0',width:'100%',
     marginTop:10}}>
-        Footer
+        What a cool Footer! &copy; When u copy it, angy boar gonna find you! And eats your guts!
       </div>
     )
   }

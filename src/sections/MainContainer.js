@@ -21,7 +21,7 @@ class MainContainer extends Component{
     .catch(error => console.error(error));
   }
   componentDidMount(){
-    let url = 'http://localhost:8080/v1/api/items/category/all-categories'
+    let url = 'http://localhost:8080/v1/api/items/category/all-categories?page=1'
     fetch(url)
     .then(resp => resp.json())
     .then(items=> this.setState({items:items}))
@@ -33,7 +33,7 @@ class MainContainer extends Component{
       <div id="mainContainer">
         <SearchBox/>
         <div id="flexContainer">
-          <Menu items={this.state.MenuItems}
+          <Menu default={['','','active','','','']} items={this.state.MenuItems}
             changeCategory={this.changeCategory}/>
           <ItemsSection items={this.state.items}/>
         </div>
