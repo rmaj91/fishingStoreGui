@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import Menu from './../components/Menu';
 import SearchBox from './../components/SearchBox';
 import ItemsSection from './ItemsSection';
-import Pagination from './../components/Pagination';
 import Register from './../components/Register';
 import {
   BrowserRouter as Router,
@@ -43,7 +42,7 @@ class MainContainer extends Component{
     return(
       <div id="mainContainer">
         <SearchBox/>
-        <div id="flexContainer">
+        <div>
           <Menu default={['','','active','','','']} items={this.state.MenuItems}
             changeCategory={this.changeCategory}/>
             <Switch>
@@ -55,14 +54,6 @@ class MainContainer extends Component{
               </Route>
             </Switch>
         </div>
-        <Switch>
-        <Route path="/register">
-        </Route>
-        <Route path="/*">
-          <Pagination/>
-        </Route>
-        </Switch>
-
       </div>
     )
   }
