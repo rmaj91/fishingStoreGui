@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import LinkMenu from './LinkMenu';
+import {Link} from "react-router-dom";
 
 class Menu extends Component{
   constructor(props){
@@ -14,16 +14,17 @@ class Menu extends Component{
     this.setState({
       linksState: linksState
     });
+    console.log(i)
   }
   render(){
     return(
       <ul className="menu">
         {this.props.items.map((category,i)=>
           <li>
-            <LinkMenu key={i} href={`/${category.toLowerCase().replace(' ','-')}`}
-              linkNumber={i} status={this.state.linksState} setActive={this.setActive}>
-                {category}
-            </LinkMenu>
+            <Link key={i} to={`/${category.toLowerCase().replace(' ','-')}`}
+              className={this.state.linksState[i]} onClick={()=>this.setActive(i)} >
+              {category}
+            </Link>
           </li>)}
       </ul>
     )
