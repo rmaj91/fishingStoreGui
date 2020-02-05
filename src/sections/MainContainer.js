@@ -20,6 +20,25 @@ class MainContainer extends Component{
       category: 'all-categories'
     }
   }
+  componentDidUpdate(){
+    // let url = `http://localhost:8080/v1/api/items/category/all-categories?page=0&size=${this.state.sizeOfPage}`
+    // fetch(url)
+    // .then(resp => resp.json())
+    // .then(items=> this.setState({items:items}))
+    // .catch(error => console.error(error));
+    //
+    // fetch(`http://localhost:8080/v1/api/items/category/all-categories/pages/${this.state.sizeOfPage}`)
+    // .then(resp => resp.json())
+    // .then(pages=> this.setState({pages:pages}))
+    // .catch(error => console.error(error));
+  }
+  changeItemsOnPage = (event)=>{
+    let itemsPerPage = event.target.value
+    this.setState({
+      sizeOfPage: itemsPerPage
+    })
+  }
+
   fetchPage(page){
     let url = `http://localhost:8080/v1/api/items/category/${this.state.category}?page=${page}&size=${this.state.sizeOfPage}`
     fetch(url)
@@ -29,7 +48,7 @@ class MainContainer extends Component{
   }
   changeCategory = (newCategory)=>{
     let category = newCategory.toLowerCase().replace(' ','-')
-    let url = `http://localhost:8080/v1/api/items/category/${category}?page=${this.state.currentPage}&size=${this.state.sizeOfPage}`
+    let url = `http://localhost:8080/v1/api/items/category/${category}?page=0&size=${this.state.sizeOfPage}`
     fetch(url)
     .then(resp => resp.json())
     .then(items=> this.setState({items:items,category:category}))
@@ -81,7 +100,8 @@ class MainContainer extends Component{
               </Route>
               <Route path="/*">
                 <ItemsSection items={this.state.items} pages={this.state.pages}
-                  currentPage={this.state.currentPage} changePage={this.changePage}/>
+                  currentPage={this.state.currentPage} changePage={this.changePage}
+                  changeItemsOnPage={this.changeItemsOnPage}/>
               </Route>
             </Switch>
         </div>

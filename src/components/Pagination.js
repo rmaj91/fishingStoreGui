@@ -25,35 +25,25 @@ class Pagination extends Component{
       })
     }
   }
+
   render(){
-    if(this.props.pages === 1){
-      return(<div></div>)
-    } else{
       return(
 
         <div className="pagination">
-          <ul >
-            <li style={{borderTopLeftRadius:'10px',borderBottomLeftRadius:'10px',marginRight:'1px'}}>
-              <a onClick={this.previousPage}>&laquo;</a>
-              {}
+          <ul>
+            <li onClick={this.previousPage}
+              style={{borderTopLeftRadius:'10px',borderBottomLeftRadius:'10px',marginRight:'1px'}}>
+              &laquo;
             </li>
-            <li className="pagItem">
-              <a href="#">1</a>
-            </li>
-            <li className="pagItem">
-              <a href="#">2</a>
-            </li>
-            <li className="pagItem">
-              <a href="#">3</a>
-            </li>
+              {this.props.currentPage+1}
             <li onClick={this.nextPage} style={{borderTopRightRadius:'10px',borderBottomRightRadius:'10px'}}>
-              <a href="#">&raquo;</a>
+              &raquo;
             </li>
           </ul>
         </div>
       )
     }
-  }
+
 }
 
 
