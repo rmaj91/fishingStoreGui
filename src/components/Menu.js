@@ -21,6 +21,7 @@ class Menu extends Component{
   }
   render(){
     return(
+      <div style={{float:'left'}}>
       <ul className="menu">
         {this.props.items.map((category,i)=>
           <li>
@@ -30,6 +31,7 @@ class Menu extends Component{
             </Link>
           </li>)}
       </ul>
+      </div>
     )
   }
 }
