@@ -16,15 +16,13 @@ class Menu extends Component{
     });
 
     this.props.changeCategory(category);
-    console.log(category);
-
   }
   render(){
     return(
       <div style={{float:'left'}}>
       <ul className="menu">
         {this.props.items.map((category,i)=>
-          <li>
+          <li key={i}>
             <Link key={i} to={`/${category.toLowerCase().replace(' ','-')}`}
               className={this.state.linksState[i]} onClick={()=>this.setActive(category,i)} >
               {category}

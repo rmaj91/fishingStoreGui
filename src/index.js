@@ -10,9 +10,7 @@ import Footer from './components/Footer'
 
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 ReactDOM.render(

@@ -4,10 +4,8 @@ import SearchBox from './../components/SearchBox';
 import ItemsSection from './ItemsSection';
 import Register from './../components/Register';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom";
 
 class MainContainer extends Component{
@@ -15,12 +13,15 @@ class MainContainer extends Component{
     super(props)
     this.state = {
       items:[],
-      MenuItems: ['News','Discount','All Categories','Rods','Reels','Lures']
+      MenuItems: ['News','Discount','All Categories','Rods','Reels','Lures'],
+      pages: 1,
+      currentPage: 0,
+      sizeOfPage: 3
     }
   }
   changeCategory = (newCategory)=>{
     let category = newCategory.toLowerCase().replace(' ','-')
-    let url = `http://localhost:8080/v1/api/items/category/${category}`
+    let url = `http://localhost:8080/v1/api/items/category/${category}?page=${this.state.currentPage}&size=${this.state.sizeOfPage}`
     fetch(url)
     .then(resp => resp.json())
     .then(items=> this.setState({items:items}))
@@ -28,17 +29,30 @@ class MainContainer extends Component{
       this.setState({items:[]});
       console.error(error);
     })
+
+    fetch(`http://localhost:8080/v1/api/items/category/${category}/pages/${this.state.sizeOfPage}`)
+    .then(resp => resp.json())
+    .then(pages=> {
+      console.log(pages+' pages');
+      this.setState({pages:pages})
+    })
+    .catch(error => console.error(error));
   }
+
   componentDidMount(){
-    let url = 'http://localhost:8080/v1/api/items/category/all-categories?page=1'
+    let url = `http://localhost:8080/v1/api/items/category/all-categories?page=1&size=${this.state.sizeOfPage}`
     fetch(url)
     .then(resp => resp.json())
     .then(items=> this.setState({items:items}))
     .catch(error => console.error(error));
+
+    fetch(`http://localhost:8080/v1/api/items/category/all-categories/pages/${this.state.sizeOfPage}`)
+    .then(resp => resp.json())
+    .then(pages=> this.setState({pages:pages}))
+    .catch(error => console.error(error));
   }
 
   render(){
-    console.log(this.props.location)
     return(
       <div id="mainContainer">
         <SearchBox/>
@@ -50,7 +64,8 @@ class MainContainer extends Component{
                 <Register/>
               </Route>
               <Route path="/*">
-                <ItemsSection items={this.state.items}/>
+                <ItemsSection items={this.state.items} pages={this.state.pages}
+                  currentPage={this.state.currentPage} />
               </Route>
             </Switch>
         </div>
