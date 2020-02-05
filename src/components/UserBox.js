@@ -13,8 +13,6 @@ class UserBox extends Component{
       </div>
     )
   }
-
 }
-
 
 export default  UserBox;

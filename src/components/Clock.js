@@ -12,6 +12,7 @@ class Clock extends Component{
     }
     this.LaunchClock();
   }
+  
   LaunchClock(){
     setInterval(()=>{
       this.setState({

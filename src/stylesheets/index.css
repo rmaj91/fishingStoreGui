@@ -64,13 +64,6 @@ select{
   max-height: 150px;
 }
 
-#flexContainer{
-  margin-top: 10px;
-  display: flex;
-  justify-content:space-between;
-  align-items: flex-start;
-}
-
 .menu{
   list-style-type: none;
   border-radius: 10px;

@@ -11,24 +11,19 @@ class Pagination extends Component{
     if(this.state.currentPage > 0){
       let currentPage = this.state.currentPage - 1;
       this.props.changePage(currentPage);
-      this.setState({
-        currentPage: currentPage
-      })
+      this.setState({currentPage: currentPage})
     }
   }
   nextPage = ()=>{
-    if(this.state.currentPage < this.props.pages-1 ){
+    if(this.state.currentPage < this.props.pages - 1 ){
       let currentPage = this.state.currentPage + 1;
       this.props.changePage(currentPage);
-      this.setState({
-        currentPage: currentPage
-      })
+      this.setState({currentPage: currentPage})
     }
   }
 
   render(){
       return(
-
         <div className="pagination">
           <ul>
             <li onClick={this.previousPage}
@@ -43,9 +38,6 @@ class Pagination extends Component{
         </div>
       )
     }
-
 }
-
-
 
 export default Pagination;

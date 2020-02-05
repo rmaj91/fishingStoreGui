@@ -3,10 +3,7 @@ import Menu from './../components/Menu';
 import SearchBox from './../components/SearchBox';
 import ItemsSection from './ItemsSection';
 import Register from './../components/Register';
-import {
-  Switch,
-  Route,
-} from "react-router-dom";
+import {Switch,  Route,} from "react-router-dom";
 
 class MainContainer extends Component{
   constructor(props){

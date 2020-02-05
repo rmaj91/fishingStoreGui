@@ -2,7 +2,6 @@ import React,{Component} from 'react';
 import logo from './../images/logo.png';
 
 class Logo extends Component{
-
   render(){
     return(
       <div id="logo">
@@ -12,6 +11,5 @@ class Logo extends Component{
     )
   }
 }
-
 
 export default Logo;

@@ -11,17 +11,14 @@ class Menu extends Component{
   setActive = (category,i)=>{
     let linksState = [];
     linksState[i] = 'active';
-    this.setState({
-      linksState: linksState
-    });
-
+    this.setState({linksState: linksState});
     this.props.changeCategory(category);
   }
   render(){
     return(
       <div style={{float:'left'}}>
       <ul className="menu">
-        {this.props.items.map((category,i)=>
+        {this.props.items.map((category,i) =>
           <li key={i}>
             <Link key={i} to={`/${category.toLowerCase().replace(' ','-')}`}
               className={this.state.linksState[i]} onClick={()=>this.setActive(category,i)} >
@@ -32,12 +29,6 @@ class Menu extends Component{
       </div>
     )
   }
-}
-
-Menu.defaultProps = {
-  id: 'menu',
-  className: 'menu',
-  menus: ['']
 }
 
 export default Menu;
