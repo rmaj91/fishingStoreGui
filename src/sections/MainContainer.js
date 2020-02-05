@@ -36,6 +36,7 @@ class MainContainer extends Component{
   }
 
   render(){
+    console.log(this.props.location)
     return(
       <div id="mainContainer">
         <SearchBox/>

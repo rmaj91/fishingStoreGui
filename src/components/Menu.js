@@ -8,13 +8,16 @@ class Menu extends Component{
       linksState: this.props.default
     }
   }
-  setActive = (i)=>{
+  setActive = (category,i)=>{
     let linksState = [];
     linksState[i] = 'active';
     this.setState({
       linksState: linksState
     });
-    console.log(i)
+
+    this.props.changeCategory(category);
+    console.log(category);
+
   }
   render(){
     return(
@@ -22,7 +25,7 @@ class Menu extends Component{
         {this.props.items.map((category,i)=>
           <li>
             <Link key={i} to={`/${category.toLowerCase().replace(' ','-')}`}
-              className={this.state.linksState[i]} onClick={()=>this.setActive(i)} >
+              className={this.state.linksState[i]} onClick={()=>this.setActive(category,i)} >
               {category}
             </Link>
           </li>)}
