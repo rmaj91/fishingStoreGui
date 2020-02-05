@@ -4,9 +4,11 @@ import Pagination from './../components/Pagination';
 
 class ItemsSection extends Component {
 render(){
+  // console.log(this.params.page+'   '+this.params.size)
+  // console.log('awd')
   if(this.props.items.length === 0){
     return (
-      <div>
+      <div >
         <div style={{display:'flex',justifyContent:'center'}}>
           <h2 style={{marginTop:'50px'}}>No items found.</h2>
         </div>
@@ -23,7 +25,7 @@ render(){
           <option >12</option>
         </select>
         <div style={{width:"auto",display:'flex',flexWrap:'wrap', marginLeft:'10px',marginBottom:'30px'}}>
-          {this.props.items.map((v,i)=><ShopItem key={i} item={v}/>)}
+          {this.props.items.map((v,i)=> <ShopItem key={i} item={v}/>) }
         </div>
         <Pagination {...this.props}/>
       </div>

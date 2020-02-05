@@ -20,18 +20,23 @@ class MainContainer extends Component{
       category: 'all-categories'
     }
   }
-  componentDidUpdate(){
-    // let url = `http://localhost:8080/v1/api/items/category/all-categories?page=0&size=${this.state.sizeOfPage}`
-    // fetch(url)
-    // .then(resp => resp.json())
-    // .then(items=> this.setState({items:items}))
-    // .catch(error => console.error(error));
-    //
-    // fetch(`http://localhost:8080/v1/api/items/category/all-categories/pages/${this.state.sizeOfPage}`)
-    // .then(resp => resp.json())
-    // .then(pages=> this.setState({pages:pages}))
-    // .catch(error => console.error(error));
+
+  componentDidUpdate(prevProps,prevState){
+    if(prevState.category !== this.state.category || prevState.currentPage !== this.state.currentPage || prevState.sizeOfPage !== this.state.sizeOfPage){
+      let url = `http://localhost:8080/v1/api/items/category/${this.state.category}?page=${this.state.currentPage}&size=${this.state.sizeOfPage}`
+      fetch(url)
+      .then(resp => resp.json())
+      .then(items=> this.setState({items:items}))
+      .catch(error => console.error(error));
+    }
+    if(prevState.category !== this.state.category || prevState.sizeOfPage !== this.state.sizeOfPage){
+      fetch(`http://localhost:8080/v1/api/items/category/${this.state.category}/pages/${this.state.sizeOfPage}`)
+      .then(resp => resp.json())
+      .then(pages=> this.setState({pages:pages}))
+      .catch(error => console.error(error));
+    }
   }
+
   changeItemsOnPage = (event)=>{
     let itemsPerPage = event.target.value
     this.setState({
@@ -39,55 +44,35 @@ class MainContainer extends Component{
     })
   }
 
-  fetchPage(page){
-    let url = `http://localhost:8080/v1/api/items/category/${this.state.category}?page=${page}&size=${this.state.sizeOfPage}`
-    fetch(url)
-    .then(resp => resp.json())
-    .then(items=> this.setState({items:items}))
-    .catch(error =>console.error(error))
-  }
   changeCategory = (newCategory)=>{
-    let category = newCategory.toLowerCase().replace(' ','-')
-    let url = `http://localhost:8080/v1/api/items/category/${category}?page=0&size=${this.state.sizeOfPage}`
-    fetch(url)
-    .then(resp => resp.json())
-    .then(items=> this.setState({items:items,category:category}))
-    .catch(error => {
-      this.setState({items:[]});
-      console.error(error);
+    newCategory = newCategory.toLowerCase().replace(' ','-')
+    this.setState({
+      category:newCategory,
+      currentPage:0
     })
+  }
 
-    fetch(`http://localhost:8080/v1/api/items/category/${category}/pages/${this.state.sizeOfPage}`)
-    .then(resp => resp.json())
-    .then(pages=> {
-      console.log(pages+' pages');
-      this.setState({pages:pages})
-    })
-    .catch(error => console.error(error));
+  changePage = (page)=>{
+    this.setState({currentPage: page})
   }
 
   componentDidMount(){
-    let url = `http://localhost:8080/v1/api/items/category/all-categories?page=0&size=${this.state.sizeOfPage}`
+    // fetch items
+    let url = `http://localhost:8080/v1/api/items/category/${this.state.category}?page=${this.state.currentPage}&size=${this.state.sizeOfPage}`
     fetch(url)
     .then(resp => resp.json())
     .then(items=> this.setState({items:items}))
     .catch(error => console.error(error));
 
-    fetch(`http://localhost:8080/v1/api/items/category/all-categories/pages/${this.state.sizeOfPage}`)
+    // fetch quantity of pages
+    fetch(`http://localhost:8080/v1/api/items/category/${this.state.category}/pages/${this.state.sizeOfPage}`)
     .then(resp => resp.json())
     .then(pages=> this.setState({pages:pages}))
     .catch(error => console.error(error));
   }
 
-  changePage = (page)=>{
-    console.log('changed page to: '+page)
-    this.setState({
-      currentPage:page
-    })
-    this.fetchPage(page)
-  }
-
   render(){
+
     return(
       <div id="mainContainer">
         <SearchBox/>

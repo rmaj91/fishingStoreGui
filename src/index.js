@@ -15,7 +15,6 @@ import {
 
 ReactDOM.render(
   <Router>
-    <Route path="/*">
       <div id="container">
         <Clock/>
         <UserBox/>
@@ -23,7 +22,6 @@ ReactDOM.render(
         <MainContainer/>
         <Footer/>
       </div>
-    </Route>
   </Router>
   ,
    document.getElementById('root'));
