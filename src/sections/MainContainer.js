@@ -25,7 +25,10 @@ class MainContainer extends Component{
     fetch(url)
     .then(resp => resp.json())
     .then(items=> this.setState({items:items}))
-    .catch(error => console.error(error));
+    .catch(error => {
+      this.setState({items:[]});
+      console.error(error);
+    })
   }
   componentDidMount(){
     let url = 'http://localhost:8080/v1/api/items/category/all-categories?page=1'
