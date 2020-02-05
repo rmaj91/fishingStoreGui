@@ -16,14 +16,18 @@ import {
 
 ReactDOM.render(
   <Router>
-    <Route >
+    <Route path="/*">
       <div id="container">
         <Clock/>
         <UserBox/>
         <Logo/>
-          <Route path="/*">
-            <MainContainer/>
-          </Route>
+          <Switch>
+            <Route path="/register">
+            </Route>
+            <Route path="/*">
+              <MainContainer/>
+            </Route>
+          </Switch>
         <Footer/>
       </div>
     </Route>
