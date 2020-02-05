@@ -5,7 +5,7 @@ class Loginbox extends Component{
     return(
       <div id="loginBox">
       <form>
-        <input type="text" placeholder="Login..." className="form-control"/><br/>
+        <input type="text" placeholder="Email..." className="form-control"/><br/>
         <input type="password" placeholder="Password..." className="form-control"/><br/>
         <input type="submit" value="Login"></input>
       </form>
