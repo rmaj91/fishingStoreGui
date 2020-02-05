@@ -4,20 +4,22 @@ class Pagination extends Component{
   constructor(props){
     super(props);
     this.state = {
-      currentPage: this.props.page
+      currentPage: this.props.currentPage
     }
   }
   previousPage = ()=>{
-    if(this.state.currentPage > 1){
+    if(this.state.currentPage > 0){
       let currentPage = this.state.currentPage - 1;
+      this.props.changePage(currentPage);
       this.setState({
         currentPage: currentPage
       })
     }
   }
   nextPage = ()=>{
-    if(this.state.currentPage < this.props.pages ){
+    if(this.state.currentPage < this.props.pages-1 ){
       let currentPage = this.state.currentPage + 1;
+      this.props.changePage(currentPage);
       this.setState({
         currentPage: currentPage
       })
