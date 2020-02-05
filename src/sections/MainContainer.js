@@ -3,6 +3,13 @@ import Menu from './../components/Menu';
 import SearchBox from './../components/SearchBox';
 import ItemsSection from './ItemsSection';
 import Pagination from './../components/Pagination';
+import Register from './../components/Register';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 class MainContainer extends Component{
   constructor(props){
@@ -35,9 +42,23 @@ class MainContainer extends Component{
         <div id="flexContainer">
           <Menu default={['','','active','','','']} items={this.state.MenuItems}
             changeCategory={this.changeCategory}/>
-          <ItemsSection items={this.state.items}/>
+            <Switch>
+              <Route path="/register">
+                <Register/>
+              </Route>
+              <Route path="/*">
+                <ItemsSection items={this.state.items}/>
+              </Route>
+            </Switch>
         </div>
-        <Pagination/>
+        <Switch>
+        <Route path="/register">
+        </Route>
+        <Route path="/*">
+          <Pagination/>
+        </Route>
+        </Switch>
+
       </div>
     )
   }

@@ -7,6 +7,7 @@ import UserBox from './components/UserBox'
 import Logo from './components/Logo'
 import MainContainer from './sections/MainContainer'
 import Footer from './components/Footer'
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,13 +22,7 @@ ReactDOM.render(
         <Clock/>
         <UserBox/>
         <Logo/>
-          <Switch>
-            <Route path="/register">
-            </Route>
-            <Route path="/*">
-              <MainContainer/>
-            </Route>
-          </Switch>
+        <MainContainer/>
         <Footer/>
       </div>
     </Route>

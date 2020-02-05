@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import Loginbox from './../components/LoginBox'
-import shoppingCart from './../images/shoppingCart.png'
+import shoppingCart from './../images/shoppingCart.png';
+import {Link} from "react-router-dom";
 
 class UserBox extends Component{
   render(){
@@ -8,7 +9,7 @@ class UserBox extends Component{
       <div id="userBox">
         <img src={shoppingCart} alt="shopping cart"/>
         <Loginbox/>
-        <a href="http://localhost:3000/register">Join us!</a>
+        <Link to="register">Join us!</Link>
       </div>
     )
   }
