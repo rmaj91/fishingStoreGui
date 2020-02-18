@@ -9,6 +9,7 @@ class ShopItem extends Component {
       </div>
       <img alt={this.props.item.name+' image'}/>
         <p>price: {this.props.item.price} $</p>
+        <p>quantity: {this.props.item.quantity}</p>
         <button>Add to cart</button>
       </div>
     )
