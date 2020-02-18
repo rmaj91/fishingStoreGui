@@ -14,12 +14,20 @@ class MainContainer extends Component{
       pages: 1,
       currentPage: 0,
       sizeOfPage: 9,
-      category: 'all-categories'
+      category: 'all-categories',
+      name:''
     }
   }
 
   componentDidUpdate(prevProps,prevState){
-    if(prevState.category !== this.state.category || prevState.currentPage !== this.state.currentPage || prevState.sizeOfPage !== this.state.sizeOfPage){
+    if(this.state.name !== '') {
+      let url = `http://localhost:8080/v1/api/items/category/${this.state.category}/name/${this.state.name}?page=${this.state.currentPage}&size=${this.state.sizeOfPage}`
+      fetch(url)
+      .then(resp => resp.json())
+      .then(items=> this.setState({items:items}))
+      .catch(error => console.error(error));
+    }
+    else if(prevState.category !== this.state.category || prevState.currentPage !== this.state.currentPage || prevState.sizeOfPage !== this.state.sizeOfPage){
       let url = `http://localhost:8080/v1/api/items/category/${this.state.category}?page=${this.state.currentPage}&size=${this.state.sizeOfPage}`
       fetch(url)
       .then(resp => resp.json())
@@ -44,13 +52,22 @@ class MainContainer extends Component{
   changeCategory = (newCategory)=>{
     newCategory = newCategory.toLowerCase().replace(' ','-')
     this.setState({
-      category:newCategory,
-      currentPage:0
+      category: newCategory,
+      currentPage: 0,
+      name:''
     })
   }
 
   changePage = (page)=>{
     this.setState({currentPage: page})
+  }
+
+  changeSearchState = (name, category)=>{
+    this.setState({
+      name: name,
+      category: category,
+      items: []
+    })
   }
 
   componentDidMount(){
@@ -72,7 +89,7 @@ class MainContainer extends Component{
 
     return(
       <div id="mainContainer">
-        <SearchBox/>
+        <SearchBox changeSearchState={this.changeSearchState}/>
         <div>
           <Menu default={['','','active','','','']} items={this.state.MenuItems}
             changeCategory={this.changeCategory}/>
